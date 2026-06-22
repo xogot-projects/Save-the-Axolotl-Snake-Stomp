@@ -28,18 +28,26 @@ func _on_mob_timer_timeout():
 	# Create a new instance of the Mob scene.
 	var mob = mob_scene.instantiate()
 
+	# We connect the mob to the score label to update the score upon squashing a mob.
+	mob.squashed.connect($UserInterface/ScoreLabel._on_Mob_squashed)
+	mob.squashed.connect(_on_mob_squashed)
+
 	# Choose a random location on the SpawnPath.
 	var mob_spawn_location = get_node(^"SpawnPath/SpawnLocation")
 	mob_spawn_location.progress_ratio = randf()
 
 	# Communicate the spawn location and the player's location to the mob.
 	var player_position = $Player.position
-	mob.initialize(mob_spawn_location.position, player_position)
 
 	# Spawn the mob by adding it to the Main scene.
 	add_child(mob)
-	# We connect the mob to the score label to update the score upon squashing a mob.
-	mob.squashed.connect($UserInterface/ScoreLabel._on_Mob_squashed)
+	mob.initialize(mob_spawn_location.position, player_position)
+
+
+# Check if squashed body is a player or not.
+func _on_mob_squashed(by: Node3D) -> void:
+	if by != null and by.has_method("bounce"):
+		by.bounce()
 
 
 func _on_player_hit():
