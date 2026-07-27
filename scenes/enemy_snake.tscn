@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://iljm26yjic76"]
+
+[ext_resource type="PackedScene" uid="uid://rl7e047f7byd" path="res://art/enemy_snake.glb" id="1_libci"]
+
+[node name="enemy_snake" unique_id=244830820 instance=ExtResource("1_libci")]
+
+[node name="Armature" parent="." index="0" unique_id=665794243]
+transform = Transform3D(-2.5, 0, -2.1855695e-07, 0, 2.5, 0, 2.1855695e-07, 0, -2.5, 0.09989573, -0.5, 0)
+
+[node name="Skeleton3D" parent="Armature" index="0" unique_id=1968185307]
+bones/1/rotation = Quaternion(-0.00017646562, -2.0336349e-05, 0.99366057, 0.112421535)
+bones/2/rotation = Quaternion(-0.0007491496, 0.002702691, 0.9777818, 0.20960654)
+bones/3/rotation = Quaternion(-0.02215921, -0.00095053046, -0.04284512, 0.99883556)
+bones/4/rotation = Quaternion(0.008666791, 0.00012659906, -0.014605262, 0.9998558)
+bones/5/rotation = Quaternion(0.00023840141, -9.847134e-06, 0.041270882, 0.99914795)
+bones/6/rotation = Quaternion(-0.0077657304, 0.0008402224, 0.10756519, 0.9941674)
+bones/7/rotation = Quaternion(0.0034523844, -0.00044861372, 0.12885897, 0.99165684)
+
+[node name="AnimationPlayer" parent="." index="1" unique_id=446627069]
+autoplay = &"Move"

@@ -1,61 +1,45 @@
-[gd_scene format=3 uid="uid://dmnsew30u12ax"]
+[gd_scene format=3 uid="uid://cank6iy4521hm"]
 
-[ext_resource type="Script" uid="uid://nkvkg855827u" path="res://scripts/Mob.gd" id="1"]
-[ext_resource type="PackedScene" uid="uid://c06hf5576r01o" path="res://art/enemy_snake.tscn" id="2_drloa"]
-[ext_resource type="Animation" uid="uid://dsbw1k878emdx" path="res://resources/Sway.res" id="3_fx5p6"]
-[ext_resource type="Texture2D" uid="uid://dgbunuhm4u63l" path="res://resources/CircleGrandient.tres" id="3_ufksc"]
+[ext_resource type="PackedScene" uid="uid://iljm26yjic76" path="res://scenes/enemy_snake.tscn" id="1_bsing"]
+[ext_resource type="Script" uid="uid://b1c4ajwsdw1b3" path="res://scripts/mob.gd" id="1_d4cuo"]
+[ext_resource type="Texture2D" uid="uid://dgbunuhm4u63l" path="res://resources/shadow.tres" id="2_d4cuo"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_g4v7s"]
-radius = 0.64208984
-height = 2.5039978
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_d4cuo"]
+radius = 0.6
+height = 2.5
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_5n6vs"]
-_data = {
-&"Sway": ExtResource("3_fx5p6")
-}
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_g4v7s"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_d4cuo"]
 size = Vector3(4, 1, 5)
 
-[node name="Mob" type="CharacterBody3D" unique_id=1742711176 groups=["mob"]]
+[node name="Mob" type="CharacterBody3D" unique_id=1601267069]
 collision_layer = 2
-collision_mask = 2147483648
-script = ExtResource("1")
+collision_mask = 0
+script = ExtResource("1_d4cuo")
 
-[node name="Pivot" type="Node3D" parent="." unique_id=437255479]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 1.0399675, 0, 0)
+[node name="Pivot" type="Node3D" parent="." unique_id=858386612]
 
-[node name="enemy_snake" parent="Pivot" unique_id=1602901955 instance=ExtResource("2_drloa")]
-transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 0, 0, 0)
+[node name="Character" parent="Pivot" unique_id=244830820 instance=ExtResource("1_bsing")]
 
-[node name="HurtBox" type="Area3D" parent="Pivot" unique_id=1887303540]
+[node name="HurtBox" type="Area3D" parent="Pivot" unique_id=534937967]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Pivot/HurtBox" unique_id=419229804]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0.03462857, 0.23018079, 1.2578793)
-shape = SubResource("CapsuleShape3D_g4v7s")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Pivot/HurtBox" unique_id=867065401]
+transform = Transform3D(1.9106855e-15, 4.371139e-08, 1, 1, -4.371139e-08, 0, 4.371139e-08, 1, -4.371139e-08, 0, 0, -1.2699809)
+shape = SubResource("CapsuleShape3D_d4cuo")
 
-[node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="." unique_id=1271674692]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.29480538, -0.21837103)
-aabb = AABB(-1.724125, -0.41160232, -2.1719058, 3.4345782, 1.0419546, 4.3740816)
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1043781205]
-callback_mode_process = 0
-libraries/ = SubResource("AnimationLibrary_5n6vs")
-autoplay = &"Sway"
-
-[node name="Sprite3D" type="Sprite3D" parent="." unique_id=324532912]
-transform = Transform3D(8, 0, 0, 0, -4.808253e-07, -4.6, 0, 11, -2.0107238e-07, 0, 0.06821132, 0)
-transparency = 0.3
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=1201997023]
+transform = Transform3D(8, 0, 0, 0, -3.496911e-07, -1, 0, 8, -4.371139e-08, 0, 0, 0)
 cast_shadow = 0
 modulate = Color(0, 0, 0, 1)
-texture = ExtResource("3_ufksc")
+texture = ExtResource("2_d4cuo")
 
-[node name="HitBox" type="Area3D" parent="." unique_id=940884039]
+[node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="." unique_id=2025666107]
+aabb = AABB(-2, -1, -3, 4, 2, 6)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="HitBox" unique_id=249138407]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.29746556, 0)
-shape = SubResource("BoxShape3D_g4v7s")
+[node name="HitBox" type="Area3D" parent="." unique_id=1283876822]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HitBox" unique_id=1012691190]
+shape = SubResource("BoxShape3D_d4cuo")
 
 [connection signal="body_entered" from="Pivot/HurtBox" to="." method="_on_hurt_box_body_entered"]
-[connection signal="screen_exited" from="VisibleOnScreenNotifier3D" to="." method="_on_visible_on_screen_notifier_screen_exited"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier3D" to="." method="_on_visible_on_screen_notifier_3d_screen_exited"]
 [connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]
