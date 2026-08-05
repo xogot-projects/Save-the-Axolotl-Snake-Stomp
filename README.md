@@ -31,7 +31,7 @@ Renderer: Forward+
 
 ## Screenshots
 
-![Screenshot](screenshots/squash_the_creeps.webp)
+![Screenshot](screenshots/index-01.game-preview-animation.gif)
 
 ## Copying
 
