@@ -96,13 +96,13 @@ anti_aliasing/quality/msaa_3d=2
 [xogot]
 
 project/editorState=[{
-"column": 58,
+"column": 0,
 "current": true,
 "line": 109,
 "path": "res://scripts/player.gd",
 "type": "file"
 }, {
-"column": 11,
+"column": 0,
 "line": 34,
 "path": "res://scripts/main.gd",
 "type": "file"
