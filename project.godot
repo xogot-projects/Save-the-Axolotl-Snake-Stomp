@@ -97,7 +97,6 @@ anti_aliasing/quality/msaa_3d=2
 
 project/editorState=[{
 "column": 0,
-"current": true,
 "line": 109,
 "path": "res://scripts/player.gd",
 "type": "file"
@@ -118,6 +117,7 @@ project/editorState=[{
 "type": "file"
 }, {
 "column": 0,
+"current": true,
 "line": 0,
 "path": "res://addons/virtual_joystick/virtual_joystick.gd",
 "type": "file"
