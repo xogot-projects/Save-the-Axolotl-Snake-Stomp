@@ -19,7 +19,7 @@ there.
 
 This demo covers:
 
-- Handling player input, including touch controls via the Virtual Joystick add-on.
+- Handling player input, including touch controls via Godot's built-in VirtualJoystick.
 - Moving and jumping in a 3D game.
 - Spawning enemies randomly around the game arena.
 - Using the built-in animation editor to breathe life into your game.

@@ -1,6 +1,5 @@
 [gd_scene format=3 uid="uid://d4mvh1lbuwu5e"]
 
-[ext_resource type="PackedScene" uid="uid://dmr0fcamx7t56" path="res://addons/virtual_joystick/virtual_joystick_scene.tscn" id="1_o5qli"]
 [ext_resource type="Script" uid="uid://jopwlkw0q8hu" path="res://scripts/main.gd" id="1_sugp2"]
 [ext_resource type="PackedScene" uid="uid://dhfcyrf0jnec7" path="res://scenes/player.tscn" id="2_0wfyh"]
 [ext_resource type="PackedScene" uid="uid://cank6iy4521hm" path="res://scenes/mob.tscn" id="2_jyhfs"]
@@ -53,21 +52,18 @@ shadow_enabled = true
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=1455447461]
 
-[node name="VirtualJoystickLeft" parent="UI" unique_id=1183798378 instance=ExtResource("1_o5qli")]
+[node name="VirtualJoystickLeft" type="VirtualJoystick" parent="UI" unique_id=1183798378]
 anchors_preset = 15
-anchor_top = 0.0
 anchor_right = 1.0
-offset_top = 0.0
-offset_right = 0.0
-offset_bottom = 0.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 joystick_mode = 2
-visibility_mode = 2
-action_left = "move_left"
-action_right = "move_right"
-action_up = "move_forward"
-action_down = "move_back"
+action_left = &"move_left"
+action_right = &"move_right"
+action_up = &"move_forward"
+action_down = &"move_back"
+visibility_mode = 1
 
 [node name="Labels" type="Control" parent="UI" unique_id=1163341219]
 layout_mode = 3
@@ -76,6 +72,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
+mouse_behavior_recursive = 1
 theme = SubResource("Theme_tipki")
 
 [node name="ScoreLabel" type="Label" parent="UI/Labels" unique_id=1195382432]

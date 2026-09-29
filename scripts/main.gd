@@ -39,7 +39,9 @@ func _on_player_hit() -> void:
     $MobTimer.stop()
     $UI/Labels/Retry.show()
     $UI/VirtualJoystickLeft.hide()
-    $UI/VirtualJoystickLeft.set_process_input(false)
+    for action in [&"move_left", &"move_right", &"move_forward", &"move_back"]:
+        if Input.is_action_pressed(action):
+            Input.action_release(action)
 
 
 func _input(event):
@@ -48,10 +50,8 @@ func _input(event):
         if event.is_action_pressed("ui_accept") or is_tap:
             get_viewport().set_input_as_handled()
             # Release any pressed movement actions before reloading.
-            for action in ["move_left", "move_right", "move_forward", "move_back"]:
+            for action in [&"move_left", &"move_right", &"move_forward", &"move_back"]:
                 if Input.is_action_pressed(action):
                     Input.action_release(action)
-            # Re-enable input processing on the joystick.
-            $UI/VirtualJoystickLeft.set_process_input(true)
             # This restarts the current scene.
             get_tree().reload_current_scene()

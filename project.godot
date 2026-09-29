@@ -17,7 +17,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 config/name="Save The Axolotl: Snake Stomp (3D)"
 config/description="In this game, your goal is to chase and kick out the snakes!"
 run/main_scene="res://scenes/main.tscn"
-config/features=PackedStringArray("4.6")
+config/features=PackedStringArray("4.7")
 config/icon="res://icon.webp"
 
 [autoload]
@@ -73,7 +73,6 @@ jump={
 
 [input_devices]
 
-virtual_controller/ios/enable_controller=true
 virtual_controller/ios/enable_left_thumbstick=false
 virtual_controller/ios/enable_right_thumbstick=false
 virtual_controller/ios/enable_button_b=false
@@ -102,6 +101,7 @@ project/editorState=[{
 "type": "file"
 }, {
 "column": 0,
+"current": true,
 "line": 34,
 "path": "res://scripts/main.gd",
 "type": "file"
@@ -114,12 +114,6 @@ project/editorState=[{
 "column": 0,
 "line": 7,
 "path": "res://scripts/score_label.gd",
-"type": "file"
-}, {
-"column": 0,
-"current": true,
-"line": 0,
-"path": "res://addons/virtual_joystick/virtual_joystick.gd",
 "type": "file"
 }]
 project/breakpoints={
